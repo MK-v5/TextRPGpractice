@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TextRPGpractice.Character
 {
-    public class CharacterClasses : Player
+    public class CharacterClass : Player
     {
         public string[] classNames = { "Knight", "Rogue", "Mage", "Berserker" };
-        public string cName;
 
         public int strMod;
         public int dexMod;
@@ -25,8 +24,7 @@ namespace TextRPGpractice.Character
             def = baseDef + defMod;
         }
     }
-
-    public class Knight : CharacterClasses
+        public class Knight : CharacterClass
     {
         public Knight()
         {
@@ -34,7 +32,7 @@ namespace TextRPGpractice.Character
             SetClassStats(10, 5, 10);
         }
     }
-    public class Rogue: CharacterClasses
+    public class Rogue : CharacterClass
     {
         public Rogue()
         {
@@ -43,7 +41,7 @@ namespace TextRPGpractice.Character
         }
     }
 
-    public class Mage : CharacterClasses
+    public class Mage : CharacterClass
     {
         public Mage()
         {
@@ -52,7 +50,7 @@ namespace TextRPGpractice.Character
         }
     }
 
-    public class Berserker : CharacterClasses
+    public class Berserker : CharacterClass
     {
         public Berserker()
         {

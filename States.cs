@@ -8,18 +8,26 @@ namespace TextRPGpractice
     internal class States
     {
         #region stats
-        static CharacterRaces race = new();
+        static CharacterRace race = new();
+        static CharacterClass classes = new();
+        static Player playerCharacter = new();
+
         static Wolfen wolf = new();
         static Cat cat = new();
         static Voxen vox = new();
         static Dragon dragon = new();
 
-        static CharacterClasses classes = new();
         static Knight knight = new();
         static Rogue rogue = new();
         static Mage mage = new();
         static Berserker berserker = new();
         #endregion end stats
+
+        #region save system
+
+        static public SaveSys sav = new();
+
+        #endregion end save system
 
         #region Enums for states
         //enum for finite state machine
@@ -29,6 +37,7 @@ namespace TextRPGpractice
             MainMenu,
             CharacterCreatorMenu,
             MainGame,
+            SaveMenu,
             RaceSelect,
             ClassSelect,
             SetStats,
@@ -53,7 +62,12 @@ namespace TextRPGpractice
                         Console.WriteLine("Main Menu:");
                         Console.WriteLine("[1] Play");
                         Console.WriteLine("[2] CharacterCreator");
-                        Console.WriteLine("[3] Quit");
+                        Console.WriteLine("[3] Save Menu");
+                        Console.WriteLine("[4] Quit");
+
+                        Console.WriteLine(race.rName);
+                        Console.WriteLine(classes.cName);
+
                         Console.Write("\n>> ");
                         userInput = Int32.Parse(Console.ReadLine());
 
@@ -68,7 +82,62 @@ namespace TextRPGpractice
                         }
                         if (userInput == 3)
                         {
+                            currentState = states.SaveMenu;
+                        }
+                        if (userInput == 4)
+                        {
                             currentState = states.Quitting;
+                        }
+                        break;
+
+                    case states.SaveMenu:
+                        Console.Clear();
+                        Console.WriteLine("Main Menu:");
+                        Console.WriteLine("[1] Save 1");
+                        Console.WriteLine("[2] Save 2");
+                        Console.WriteLine("[3] Save 3");
+                        Console.WriteLine("[4] Save 4");
+                        Console.WriteLine("[5] Save 5");
+                        Console.WriteLine("[6] Save 6");
+                        Console.WriteLine("[7] Save 7");
+                        Console.Write("\n>> ");
+                        userInput = Int32.Parse(Console.ReadLine());
+
+                        if (userInput == 1)
+                        {
+                            SaveSys.SaveGame(playerCharacter);
+                            SaveSys.currentSave = 0;
+                            currentState = states.SaveMenu;
+                        }
+                        if (userInput == 2)
+                        {
+                            SaveSys.currentSave = 1;
+                            currentState = states.SaveMenu;
+                        }
+                        if (userInput == 3)
+                        {
+                            SaveSys.currentSave = 2;
+                            currentState = states.SaveMenu;
+                        }
+                        if (userInput == 4)
+                        {
+                            SaveSys.currentSave = 3;
+                            currentState = states.SaveMenu;
+                        }
+                        if (userInput == 5)
+                        {
+                            SaveSys.currentSave = 4;
+                            currentState = states.SaveMenu;
+                        }
+                        if (userInput == 6)
+                        {
+                            SaveSys.currentSave = 5;
+                            currentState = states.SaveMenu;
+                        }
+                        if (userInput == 7)
+                        {
+                            SaveSys.currentSave = 6;
+                            currentState = states.SaveMenu;
                         }
                         break;
 
@@ -107,40 +176,24 @@ namespace TextRPGpractice
 
                         if (userInput == 1)
                         {
-                            race = wolf;
+                            //race = wolf;
+                            playerCharacter = race;
                             currentState = states.ClassSelect;
-                            Console.WriteLine(race.rName);
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.mp);
-                            Console.WriteLine(race.sp);
-                            Thread.Sleep(1200);
                         }
                         if (userInput == 2)
                         {
                             race = cat;
                             currentState = states.ClassSelect;
-                            Console.WriteLine(race.rName);
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.mp);
-                            Console.WriteLine(race.sp);
                         }
                         if (userInput == 3)
                         {
                             race = vox;
                             currentState = states.ClassSelect;
-                            Console.WriteLine(race.rName);
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.mp);
-                            Console.WriteLine(race.sp);
                         }
                         if (userInput == 4)
                         {
                             race = dragon;
                             currentState = states.ClassSelect;
-                            Console.WriteLine(race.rName);
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.mp);
-                            Console.WriteLine(race.sp);
                         }
                         break;
 
@@ -157,46 +210,23 @@ namespace TextRPGpractice
                         if (userInput == 1)
                         {
                             classes = knight;
-                            currentState = states.Quitting;
-                            Console.WriteLine(classes.cName);
-                            Console.WriteLine(race.rName);
-
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.mp);
-
-                            Console.WriteLine(classes.str);
-                            Console.WriteLine(classes.dex);
-                            Console.WriteLine(classes.def);
+                            playerCharacter = classes;
+                            currentState = states.MainMenu;
                         }
                         if (userInput == 2)
                         {
                             classes = rogue;
-                            currentState = states.Quitting;
-                            Console.WriteLine(classes.cName);
-                            Console.WriteLine(race.rName);
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.str);
-                            Console.WriteLine(race.dex);
+                            currentState = states.MainMenu;
                         }
                         if (userInput == 3)
                         {
                             classes = mage;
-                            currentState = states.Quitting;
-                            Console.WriteLine(classes.cName);
-                            Console.WriteLine(race.rName);
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.str);
-                            Console.WriteLine(race.dex);
+                            currentState = states.MainMenu;
                         }
                         if (userInput == 4)
                         {
                             classes = berserker;
-                            currentState = states.Quitting;
-                            Console.WriteLine(classes.cName);
-                            Console.WriteLine(race.rName);
-                            Console.WriteLine(race.hp);
-                            Console.WriteLine(race.str);
-                            Console.WriteLine(race.dex);
+                            currentState = states.MainMenu;
                         }
                         break;
                 }

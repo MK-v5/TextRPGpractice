@@ -23,17 +23,19 @@ namespace TextRPGpractice.Character
         public int baseAmr;
 
         //race
-        public int hp;
-        public int mp;
-        public int sp;
+        public string rName { get; set; }
+        public int hp { get; set; }
+        public int mp { get; set; }
+        public int sp { get; set; }
 
         //class
-        public int str;
-        public int def;
-        public int dex;
+        public string cName { get; set; }
+        public int str { get; set; }
+        public int def { get; set; }
+        public int dex { get; set; }
 
         //combat
-        public int dmg;
-        public int amr;
+        public int dmg { get; set; }
+        public int amr { get; set; }
     }
 }

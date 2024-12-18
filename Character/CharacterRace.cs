@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace TextRPGpractice.Character
 {
-    public class CharacterRaces : Player
+    public class CharacterRace : Player
     {
         public string[] raceNames = { "Wolfen", "Cat", "Voxen", "Dragon" };
-        public string rName;
 
         public int hpMod;
         public int mpMod;
@@ -24,9 +23,11 @@ namespace TextRPGpractice.Character
             mp = baseMp + mpMod;
             sp = baseSp + mpMod;
         }
+
+        
     }
 
-    public class Wolfen : CharacterRaces
+    public class Wolfen : CharacterRace
     {
         public Wolfen()
         {
@@ -35,7 +36,7 @@ namespace TextRPGpractice.Character
         }
     }
 
-    public class Cat : CharacterRaces
+    public class Cat : CharacterRace
     {
         public Cat() 
         {
@@ -44,7 +45,7 @@ namespace TextRPGpractice.Character
         }
     }
 
-    public class Voxen : CharacterRaces 
+    public class Voxen : CharacterRace
     {
         public Voxen()
         {
@@ -53,7 +54,7 @@ namespace TextRPGpractice.Character
         }
     }
 
-    public class Dragon : CharacterRaces
+    public class Dragon : CharacterRace
     {
         public Dragon() 
         {

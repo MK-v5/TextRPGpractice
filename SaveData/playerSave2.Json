@@ -1,0 +1,14 @@
+{
+  "Race": {
+    "rName": "Wolfen",
+    "hp": 15,
+    "mp": 20,
+    "sp": 20
+  },
+  "Class": {
+    "cName": "Knight",
+    "str": 20,
+    "def": 15,
+    "dex": 10
+  }
+}

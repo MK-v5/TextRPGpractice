@@ -9,8 +9,8 @@ namespace TextRPGpractice.Player_info
 {
     public class Player
     {
-        public CharacterRace rac { get; set; }
-        public CharacterClass cls { get; set; }
+        public CharacterRace Race { get; set; }
+        public CharacterClass Class { get; set; }
     }
 }
 

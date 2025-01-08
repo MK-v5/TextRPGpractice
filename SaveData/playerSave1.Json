@@ -1,11 +1,11 @@
 {
-  "rac": {
+  "Race": {
     "rName": "Wolfen",
     "hp": 15,
     "mp": 20,
     "sp": 20
   },
-  "cls": {
+  "Class": {
     "cName": "Knight",
     "str": 20,
     "def": 15,

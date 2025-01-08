@@ -4,11 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRPGpractice.Character
+namespace TextRPGpractice.Player_info
 {
-    public class CharacterRace : Player
+    public class CharacterRace
     {
         public string[] raceNames = { "Wolfen", "Cat", "Voxen", "Dragon" };
+
+        //race
+        public string rName { get; set; }
+        public int hp { get; set; }
+        public int mp { get; set; }
+        public int sp { get; set; }
+
+        //for race
+        public int baseHp = 5;
+        public int baseMp = 10;
+        public int baseSp = 10;
 
         public int hpMod;
         public int mpMod;
@@ -23,8 +34,6 @@ namespace TextRPGpractice.Character
             mp = baseMp + mpMod;
             sp = baseSp + mpMod;
         }
-
-        
     }
 
     public class Wolfen : CharacterRace

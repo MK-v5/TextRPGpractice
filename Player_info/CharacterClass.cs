@@ -4,11 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRPGpractice.Character
+namespace TextRPGpractice.Player_info
 {
-    public class CharacterClass : Player
+    public class CharacterClass
     {
         public string[] classNames = { "Knight", "Rogue", "Mage", "Berserker" };
+
+        //class
+        public string cName { get; set; }
+        public int str { get; set; }
+        public int def { get; set; }
+        public int dex { get; set; }
+
+        //for class
+        public int baseStr = 10;
+        public int baseDef = 5;
+        public int baseDex = 5;
 
         public int strMod;
         public int dexMod;
@@ -24,7 +35,7 @@ namespace TextRPGpractice.Character
             def = baseDef + defMod;
         }
     }
-        public class Knight : CharacterClass
+    public class Knight : CharacterClass
     {
         public Knight()
         {

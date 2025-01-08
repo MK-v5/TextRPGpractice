@@ -1,11 +1,14 @@
 {
-  "hp": 0,
-  "mp": 0,
-  "sp": 0,
-  "cName": "Knight",
-  "str": 20,
-  "def": 15,
-  "dex": 10,
-  "dmg": 0,
-  "amr": 0
+  "rac": {
+    "rName": "Wolfen",
+    "hp": 15,
+    "mp": 20,
+    "sp": 20
+  },
+  "cls": {
+    "cName": "Knight",
+    "str": 20,
+    "def": 15,
+    "dex": 10
+  }
 }

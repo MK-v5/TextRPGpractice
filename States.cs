@@ -1,16 +1,16 @@
 ﻿using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.IO.Compression;
-using TextRPGpractice.Character;
+using TextRPGpractice.Player_info;
 
 namespace TextRPGpractice
 {
-    internal class States
+    class States
     {
         #region stats
         static CharacterRace race = new();
         static CharacterClass classes = new();
-        static Player playerCharacter = new();
+        static Player player = new();
 
         static Wolfen wolf = new();
         static Cat cat = new();
@@ -47,8 +47,13 @@ namespace TextRPGpractice
 
         #endregion End Enums for states
 
+        static void Combine()
+        {
+
+        }
+
         #region Main Region
-        static void Main()
+        static void Main(string[] args)
         {
             int userInput;
             states currentState = states.MainMenu;
@@ -65,8 +70,8 @@ namespace TextRPGpractice
                         Console.WriteLine("[3] Save Menu");
                         Console.WriteLine("[4] Quit");
 
-                        Console.WriteLine(race.rName);
-                        Console.WriteLine(classes.cName);
+                        Console.WriteLine(player.rac);
+                        Console.WriteLine(player.cls);
 
                         Console.Write("\n>> ");
                         userInput = Int32.Parse(Console.ReadLine());
@@ -100,44 +105,49 @@ namespace TextRPGpractice
                         Console.WriteLine("[5] Save 5");
                         Console.WriteLine("[6] Save 6");
                         Console.WriteLine("[7] Save 7");
+                        Console.WriteLine("[8] Main Menu");
                         Console.Write("\n>> ");
                         userInput = Int32.Parse(Console.ReadLine());
 
                         if (userInput == 1)
                         {
-                            SaveSys.SaveGame(playerCharacter);
-                            SaveSys.currentSave = 0;
+                            sav.SaveGame(player);
+                            sav.currentSave = 0;
                             currentState = states.SaveMenu;
                         }
                         if (userInput == 2)
                         {
-                            SaveSys.currentSave = 1;
+                            sav.currentSave = 1;
                             currentState = states.SaveMenu;
                         }
                         if (userInput == 3)
                         {
-                            SaveSys.currentSave = 2;
+                            sav.currentSave = 2;
                             currentState = states.SaveMenu;
                         }
                         if (userInput == 4)
                         {
-                            SaveSys.currentSave = 3;
+                            sav.currentSave = 3;
                             currentState = states.SaveMenu;
                         }
                         if (userInput == 5)
                         {
-                            SaveSys.currentSave = 4;
+                            sav.currentSave = 4;
                             currentState = states.SaveMenu;
                         }
                         if (userInput == 6)
                         {
-                            SaveSys.currentSave = 5;
+                            sav.currentSave = 5;
                             currentState = states.SaveMenu;
                         }
                         if (userInput == 7)
                         {
-                            SaveSys.currentSave = 6;
+                            sav.currentSave = 6;
                             currentState = states.SaveMenu;
+                        }
+                        if (userInput == 8)
+                        {
+                            currentState = states.MainMenu;
                         }
                         break;
 
@@ -176,23 +186,23 @@ namespace TextRPGpractice
 
                         if (userInput == 1)
                         {
-                            //race = wolf;
-                            playerCharacter = race;
+                            
+                            player.rac = wolf;
                             currentState = states.ClassSelect;
                         }
                         if (userInput == 2)
                         {
-                            race = cat;
+                            player.rac = cat;
                             currentState = states.ClassSelect;
                         }
                         if (userInput == 3)
                         {
-                            race = vox;
+                            player.rac = vox;
                             currentState = states.ClassSelect;
                         }
                         if (userInput == 4)
                         {
-                            race = dragon;
+                            player.rac = dragon;
                             currentState = states.ClassSelect;
                         }
                         break;
@@ -209,23 +219,23 @@ namespace TextRPGpractice
 
                         if (userInput == 1)
                         {
-                            classes = knight;
-                            playerCharacter = classes;
+                            
+                            player.cls = knight;
                             currentState = states.MainMenu;
                         }
                         if (userInput == 2)
                         {
-                            classes = rogue;
+                            player.cls = rogue;
                             currentState = states.MainMenu;
                         }
                         if (userInput == 3)
                         {
-                            classes = mage;
+                            player.cls = mage;
                             currentState = states.MainMenu;
                         }
                         if (userInput == 4)
                         {
-                            classes = berserker;
+                            player.cls = berserker;
                             currentState = states.MainMenu;
                         }
                         break;

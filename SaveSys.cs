@@ -6,22 +6,14 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TextRPGpractice.Player_info;
+using System.Runtime.Serialization.Json;
 
 namespace TextRPGpractice
 {
-    internal class SaveSys
+    class SaveSys : States
     {
-        Player player = new();
         readonly JsonSerializerOptions jOptions = new() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, WriteIndented = true };
-        string[] path = 
-            { 
-            "../../../SaveData/playerSave1.Json",
-            "../../../SaveData/playerSave2.Json",
-            "../../../SaveData/playerSave3.Json",
-            "../../../SaveData/playerSave4.Json",
-            "../../../SaveData/playerSave5.Json",
-            "../../../SaveData/playerSave6.Json",
-            "../../../SaveData/playerSave7.Json" };
+        string[] path = { "../../../SaveData/playerSave1.Json", "../../../SaveData/playerSave2.Json", "../../../SaveData/playerSave3.Json", "../../../SaveData/playerSave4.Json", "../../../SaveData/playerSave5.Json", "../../../SaveData/playerSave6.Json", "../../../SaveData/playerSave7.Json" };
         public int currentSave = 0;
         public void SaveGame(Player charSave)
         {
@@ -32,12 +24,13 @@ namespace TextRPGpractice
             string jsonString = JsonSerializer.Serialize(charSave, jOptions);
             File.WriteAllText(path[currentSave], jsonString);
         }
-        void LoadSave()
+        public void LoadSave(Player pl)
         {
             if (File.Exists(path[currentSave]) != false)
             {
-                string allSaves = File.ReadAllText(path[currentSave]);
-                player = JsonSerializer.Deserialize<Player>(allSaves);
+                string loader = File.ReadAllText(path[currentSave]);
+                player = JsonSerializer.Deserialize<Player>(loader);
+                pl = player;
             }
         }
     }

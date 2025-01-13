@@ -7,8 +7,9 @@ namespace TextRPGpractice
 {
     class States
     {
-        #region stats
-        static Player player = new();
+        #region player stat objects
+
+        static public Player player = new();
 
         static Wolfen wolf = new();
         static Cat cat = new();
@@ -21,9 +22,9 @@ namespace TextRPGpractice
         static Berserker berserker = new();
         #endregion end stats
 
-        #region save system
+        #region save system object
 
-        static public SaveSys sav = new();
+        static SaveSys sav = new();
 
         #endregion end save system
 
@@ -36,6 +37,7 @@ namespace TextRPGpractice
             CharacterCreatorMenu,
             MainGame,
             SaveMenu,
+            LoadMenu,
             RaceSelect,
             ClassSelect,
             SetStats,
@@ -46,6 +48,7 @@ namespace TextRPGpractice
         #endregion End Enums for states
 
         #region Main Region
+
         static void Main(string[] args)
         {
             int userInput;
@@ -61,7 +64,12 @@ namespace TextRPGpractice
                         Console.WriteLine("[1] Play");
                         Console.WriteLine("[2] CharacterCreator");
                         Console.WriteLine("[3] Save Menu");
-                        Console.WriteLine("[4] Quit");
+                        Console.WriteLine("[4] Load Menu");
+                        Console.WriteLine("[5] Quit");
+
+                        //Console.WriteLine(sav.loader);
+                        Console.WriteLine(player.Race);
+                        Console.WriteLine(player.Class);
 
                         Console.Write("\n>> ");
                         userInput = Int32.Parse(Console.ReadLine());
@@ -80,6 +88,10 @@ namespace TextRPGpractice
                             currentState = states.SaveMenu;
                         }
                         if (userInput == 4)
+                        {
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 5)
                         {
                             currentState = states.Quitting;
                         }
@@ -147,6 +159,68 @@ namespace TextRPGpractice
                         }
                         break;
 
+                    case states.LoadMenu:
+                        Console.Clear();
+                        Console.WriteLine("Load Menu:");
+                        Console.WriteLine("[1] Save 1");
+                        Console.WriteLine("[2] Save 2");
+                        Console.WriteLine("[3] Save 3");
+                        Console.WriteLine("[4] Save 4");
+                        Console.WriteLine("[5] Save 5");
+                        Console.WriteLine("[6] Save 6");
+                        Console.WriteLine("[7] Save 7");
+                        Console.WriteLine("[8] Main Menu");
+                        Console.Write("\n>> ");
+                        userInput = Int32.Parse(Console.ReadLine());
+
+                        if (userInput == 1)
+                        {
+                            sav.currentSave = 0;
+                            sav.LoadSave(player);
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 2)
+                        {
+                            sav.currentSave = 1;
+                            sav.LoadSave(player);
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 3)
+                        {
+                            sav.currentSave = 2;
+                            sav.LoadSave(player);
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 4)
+                        {
+                            sav.currentSave = 3;
+                            sav.LoadSave(player);
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 5)
+                        {
+                            sav.currentSave = 4;
+                            sav.LoadSave(player);
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 6)
+                        {
+                            sav.currentSave = 5;
+                            sav.LoadSave(player);
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 7)
+                        {
+                            sav.currentSave = 6;
+                            sav.LoadSave(player);
+                            currentState = states.LoadMenu;
+                        }
+                        if (userInput == 8)
+                        {
+                            currentState = states.MainMenu;
+                        }
+                        break;
+
                     case states.CharacterCreatorMenu:
                         Console.Clear();
                         Console.WriteLine("Character Creator:");
@@ -164,7 +238,7 @@ namespace TextRPGpractice
                         {
                             currentState = states.CharacterViewer;
                         }
-                        if (userInput == 3) 
+                        if (userInput == 3)
                         {
                             currentState = states.MainMenu;
                         }
@@ -182,7 +256,7 @@ namespace TextRPGpractice
 
                         if (userInput == 1)
                         {
-                            
+
                             player.Race = wolf;
                             currentState = states.ClassSelect;
                         }
@@ -215,7 +289,7 @@ namespace TextRPGpractice
 
                         if (userInput == 1)
                         {
-                            
+
                             player.Class = knight;
                             currentState = states.MainMenu;
                         }

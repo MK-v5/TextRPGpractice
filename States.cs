@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.IO.Compression;
-using TextRPGpractice.Player_info;
+using TextRPGpractice.Entity_info;
 
 namespace TextRPGpractice
 {
@@ -28,6 +28,10 @@ namespace TextRPGpractice
 
         #endregion end save system
 
+        #region combat object
+        static Combat comb = new();
+        #endregion end combat object
+
         #region Enums for states
         //enum for finite state machine
         //all menu states will be pulled from here
@@ -48,10 +52,10 @@ namespace TextRPGpractice
         #endregion End Enums for states
 
         #region Main Region
+        public static int userInput;
 
         static void Main(string[] args)
         {
-            int userInput;
             states currentState = states.MainMenu;
 
             while (currentState != states.Quitting)
@@ -67,7 +71,6 @@ namespace TextRPGpractice
                         Console.WriteLine("[4] Load Menu");
                         Console.WriteLine("[5] Quit");
 
-                        //Console.WriteLine(sav.loader);
                         Console.WriteLine(player.Race);
                         Console.WriteLine(player.Class);
 
@@ -76,8 +79,7 @@ namespace TextRPGpractice
 
                         if (userInput == 1)
                         {
-                            Console.WriteLine("Game");
-                            currentState = states.Quitting;
+                            currentState = states.MainGame;
                         }
                         if (userInput == 2)
                         {
@@ -95,6 +97,10 @@ namespace TextRPGpractice
                         {
                             currentState = states.Quitting;
                         }
+                        break;
+
+                    case states.MainGame:
+                        comb.Encounter();
                         break;
 
                     case states.SaveMenu:
@@ -176,43 +182,43 @@ namespace TextRPGpractice
                         if (userInput == 1)
                         {
                             sav.currentSave = 0;
-                            sav.LoadSave(player);
+                            sav.LoadSave();
                             currentState = states.LoadMenu;
                         }
                         if (userInput == 2)
                         {
                             sav.currentSave = 1;
-                            sav.LoadSave(player);
+                            sav.LoadSave();
                             currentState = states.LoadMenu;
                         }
                         if (userInput == 3)
                         {
                             sav.currentSave = 2;
-                            sav.LoadSave(player);
+                            sav.LoadSave();
                             currentState = states.LoadMenu;
                         }
                         if (userInput == 4)
                         {
                             sav.currentSave = 3;
-                            sav.LoadSave(player);
+                            sav.LoadSave();
                             currentState = states.LoadMenu;
                         }
                         if (userInput == 5)
                         {
                             sav.currentSave = 4;
-                            sav.LoadSave(player);
+                            sav.LoadSave();
                             currentState = states.LoadMenu;
                         }
                         if (userInput == 6)
                         {
                             sav.currentSave = 5;
-                            sav.LoadSave(player);
+                            sav.LoadSave();
                             currentState = states.LoadMenu;
                         }
                         if (userInput == 7)
                         {
                             sav.currentSave = 6;
-                            sav.LoadSave(player);
+                            sav.LoadSave();
                             currentState = states.LoadMenu;
                         }
                         if (userInput == 8)

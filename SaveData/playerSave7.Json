@@ -1,0 +1,14 @@
+{
+  "Race": {
+    "rName": "Voxen",
+    "hp": 15,
+    "mp": 20,
+    "sp": 20
+  },
+  "Class": {
+    "cName": "Mage",
+    "str": 20,
+    "def": 15,
+    "dex": 10
+  }
+}

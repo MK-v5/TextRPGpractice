@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
-using TextRPGpractice.Player_info;
+using TextRPGpractice.Entity_info;
 using System.Runtime.Serialization.Json;
 
 namespace TextRPGpractice
@@ -24,13 +24,12 @@ namespace TextRPGpractice
             string jsonString = JsonSerializer.Serialize(charSave, jOptions);
             File.WriteAllText(path[currentSave], jsonString);
         }
-        public void LoadSave(Player pl)
+        public void LoadSave()
         {
             if (File.Exists(path[currentSave]) != false)
             {
                 string loader = File.ReadAllText(path[currentSave]);
                 player = JsonSerializer.Deserialize<Player>(loader);
-                pl = player;
             }
         }
     }

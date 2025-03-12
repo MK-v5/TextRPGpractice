@@ -1,14 +1,16 @@
 {
+  "level": 0,
+  "exp": 0,
   "Race": {
     "rName": "Cat",
-    "hp": 15,
-    "mp": 20,
-    "sp": 20
+    "hp": 10,
+    "mp": 10,
+    "sp": 10
   },
   "Class": {
     "cName": "Rogue",
-    "str": 20,
+    "str": 10,
     "def": 15,
-    "dex": 10
+    "dex": 5
   }
 }

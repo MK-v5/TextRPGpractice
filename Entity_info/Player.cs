@@ -5,10 +5,13 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRPGpractice.Player_info
+namespace TextRPGpractice.Entity_info
 {
     public class Player
     {
+        public int level { get; set; }
+        public int exp { get; set; }
+
         public CharacterRace Race { get; set; }
         public CharacterClass Class { get; set; }
     }

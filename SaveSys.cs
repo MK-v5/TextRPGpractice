@@ -17,6 +17,12 @@ namespace TextRPGpractice
         public int currentSave = 0;
         public void SaveGame(Player charSave)
         {
+            if (charSave != null)
+            {
+                Console.WriteLine("No character Created");
+                Thread.Sleep(550);
+                return;
+            }
             if (!Directory.Exists("../../../SaveData"))
             {
                 Directory.CreateDirectory("../../../SaveData");

@@ -3,14 +3,14 @@
   "exp": 0,
   "Race": {
     "rName": "Wolfen",
-    "hp": 20,
-    "mp": 17,
-    "sp": 15
+    "hp": 30,
+    "mp": 15,
+    "sp": 20
   },
   "Class": {
-    "cName": "Knight",
-    "str": 10,
-    "def": 15,
-    "dex": 5
+    "cName": "Ninja",
+    "str": 18,
+    "def": 19,
+    "dex": 16
   }
 }

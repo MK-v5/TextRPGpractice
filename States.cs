@@ -1,26 +1,21 @@
 ﻿using Microsoft.VisualBasic;
 using System.Diagnostics;
 using System.IO.Compression;
+using TextRPGpractice.Creation;
 using TextRPGpractice.Entity_info;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace TextRPGpractice
 {
-    class States
+    public class States
     {
-        #region player stat objects
 
-        static public Player player = new();
+        #region character region
 
-        static Wolfen wolf = new();
-        static Cat cat = new();
-        static Voxen vox = new();
-        static Dragon dragon = new();
+        public static Player player = new();
+        //public static CreatePlayer createP = new();
 
-        static Knight knight = new();
-        static Rogue rogue = new();
-        static Mage mage = new();
-        static Berserker berserker = new();
-        #endregion end stats
+        #endregion character region
 
         #region save system object
 
@@ -29,13 +24,13 @@ namespace TextRPGpractice
         #endregion end save system
 
         #region combat object
-        static Combat comb = new();
+        static public Combat comb = new();
         #endregion end combat object
 
         #region Enums for states
         //enum for finite state machine
         //all menu states will be pulled from here
-        enum states
+        public enum states
         {
             MainMenu,
             CharacterCreatorMenu,
@@ -53,10 +48,16 @@ namespace TextRPGpractice
 
         #region Main Region
         public static int userInput;
+        public static states currentState;
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            states currentState = states.MainMenu;
+            MainMenu();
+        }
+
+        public static void MainMenu()
+        {
+            currentState = states.MainMenu;
 
             while (currentState != states.Quitting)
             {
@@ -84,6 +85,7 @@ namespace TextRPGpractice
                         if (userInput == 2)
                         {
                             currentState = states.CharacterCreatorMenu;
+                            CreatePlayer.CreateCharacter();
                         }
                         if (userInput == 3)
                         {
@@ -223,95 +225,6 @@ namespace TextRPGpractice
                         }
                         if (userInput == 8)
                         {
-                            currentState = states.MainMenu;
-                        }
-                        break;
-
-                    case states.CharacterCreatorMenu:
-                        Console.Clear();
-                        Console.WriteLine("Character Creator:");
-                        Console.WriteLine("[1] Create Character");
-                        Console.WriteLine("[2] View Characters");
-                        Console.WriteLine("[3] Main Menu");
-                        Console.Write("\n>> ");
-                        userInput = Int32.Parse(Console.ReadLine());
-
-                        if (userInput == 1)
-                        {
-                            currentState = states.RaceSelect;
-                        }
-                        if (userInput == 2)
-                        {
-                            currentState = states.CharacterViewer;
-                        }
-                        if (userInput == 3)
-                        {
-                            currentState = states.MainMenu;
-                        }
-                        break;
-
-                    case states.RaceSelect:
-                        Console.Clear();
-                        Console.WriteLine("Race Select:");
-                        Console.WriteLine("[1] Wolfen");
-                        Console.WriteLine("[2] Cat");
-                        Console.WriteLine("[3] Voxen");
-                        Console.WriteLine("[4] Dragon");
-                        Console.Write("\n>> ");
-                        userInput = Int32.Parse(Console.ReadLine());
-
-                        if (userInput == 1)
-                        {
-
-                            player.Race = wolf;
-                            currentState = states.ClassSelect;
-                        }
-                        if (userInput == 2)
-                        {
-                            player.Race = cat;
-                            currentState = states.ClassSelect;
-                        }
-                        if (userInput == 3)
-                        {
-                            player.Race = vox;
-                            currentState = states.ClassSelect;
-                        }
-                        if (userInput == 4)
-                        {
-                            player.Race = dragon;
-                            currentState = states.ClassSelect;
-                        }
-                        break;
-
-                    case states.ClassSelect:
-                        Console.Clear();
-                        Console.WriteLine("Race Select:");
-                        Console.WriteLine("[1] Knight");
-                        Console.WriteLine("[2] Rogue");
-                        Console.WriteLine("[3] Mage");
-                        Console.WriteLine("[4] Berserker");
-                        Console.Write("\n>> ");
-                        userInput = Int32.Parse(Console.ReadLine());
-
-                        if (userInput == 1)
-                        {
-
-                            player.Class = knight;
-                            currentState = states.MainMenu;
-                        }
-                        if (userInput == 2)
-                        {
-                            player.Class = rogue;
-                            currentState = states.MainMenu;
-                        }
-                        if (userInput == 3)
-                        {
-                            player.Class = mage;
-                            currentState = states.MainMenu;
-                        }
-                        if (userInput == 4)
-                        {
-                            player.Class = berserker;
                             currentState = states.MainMenu;
                         }
                         break;

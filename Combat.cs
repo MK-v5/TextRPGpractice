@@ -4,14 +4,52 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextRPGpractice.Entity_info;
+using TextRPGpractice.Creation;
 
 namespace TextRPGpractice
 {
-    class Combat : States
+    public class Combat : States
     {
+
+        Random rnd = new Random();
+        int enRaceChance;
+        int enClassChance;
         bool isCombat = false;
         bool yourTurn = true;
+        bool enemyCreated = false;
         public void Encounter()
+        {
+            if (enemyCreated)
+            {
+                CreateEnemy();
+            }
+            else
+            {
+                isCombat = true;
+            }
+            while (isCombat)
+            {
+                if (yourTurn)
+                {
+                    choices();
+                }
+                else
+                {
+                    Console.WriteLine("Turn ended");
+                    Thread.Sleep(750);
+                    yourTurn = true;
+                }
+            }
+        }
+
+        void CreateEnemy()
+        {
+            enRaceChance = rnd.Next(0, 3);
+            enClassChance = rnd.Next(0, 3);
+            
+        }
+
+        void choices()
         {
             Console.Clear();
             Console.WriteLine("[1] Attack");
@@ -23,11 +61,16 @@ namespace TextRPGpractice
 
             Console.Write("\n>> ");
             userInput = Int32.Parse(Console.ReadLine());
+
+            if (userInput == 1)
+            {
+                Attack();
+            }
         }
 
         void Attack()
         {
-
+            yourTurn = false;
         }
 
         void Skill()

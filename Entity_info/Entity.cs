@@ -9,13 +9,13 @@ namespace TextRPGpractice.Entity_info
     public class Entity
     {
         //for race
-        public int baseHp;
-        public int baseMp;
-        public int baseSp;
+        public int baseHp = 20;
+        public int baseMp = 5;
+        public int baseSp = 10;
 
         //for class
-        public int baseStr;
-        public int baseDef;
-        public int baseDex;
+        public int baseStr = 8;
+        public int baseDef = 9;
+        public int baseDex = 11;
     }
 }

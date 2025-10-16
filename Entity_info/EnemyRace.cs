@@ -19,7 +19,7 @@ namespace TextRPGpractice.Entity_info
         public int eMpMod;
         public int eSpMod;
 
-        public void EnemySTATS(int eHpM, int eMpM, int eSpM)
+        public void erStats(int eHpM, int eMpM, int eSpM)
         {
             eHpMod = eHpM;
             eMpMod = eMpM;
@@ -29,4 +29,41 @@ namespace TextRPGpractice.Entity_info
             enemySp = baseSp + eSpMod;
         }
     }
+    #region enemy race region
+
+    public class Endog : EnemyRace
+    {
+        public Endog()
+        {
+            enemyRn = enemyRaceName[0];
+            erStats(10, 9, 10);
+        }
+    }
+    public class Kobold : EnemyRace
+    {
+        public Kobold()
+        {
+            enemyRn = enemyRaceName[1];
+            erStats(10, 9, 10);
+        }
+    }
+
+    public class Owlen : EnemyRace
+    {
+        public Owlen()
+        {
+            enemyRn = enemyRaceName[2];
+            erStats(10, 9, 10);
+        }
+    }
+    public class Bear : EnemyRace 
+    {
+        public Bear()
+        {
+            enemyRn = enemyRaceName[3];
+            erStats(10, 9, 10);
+        }
+    }
+
+    #endregion enemy race region
 }

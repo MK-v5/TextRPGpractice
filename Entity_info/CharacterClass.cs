@@ -8,7 +8,7 @@ namespace TextRPGpractice.Entity_info
 {
     public class CharacterClass : Entity
     {
-        public string[] classNames = { "Knight", "Thief", "Mage", "Demon Hunter" };
+        public string[] classNames = { "Knight", "Ninja", "Mage", "Demon Hunter" };
 
         //class
         public string cName { get; set; }
@@ -40,9 +40,9 @@ namespace TextRPGpractice.Entity_info
         }
     }
 
-    public class Rogue : CharacterClass
+    public class Ninja : CharacterClass
     {
-        public Rogue()
+        public Ninja()
         {
             cName = classNames[1].ToString();
             SetClassStats(10, 5, 10);
@@ -58,9 +58,9 @@ namespace TextRPGpractice.Entity_info
         }
     }
 
-    public class Berserker : CharacterClass
+    public class DemonHunter : CharacterClass
     {
-        public Berserker()
+        public DemonHunter()
         {
             cName = classNames[3].ToString();
             SetClassStats(10, 5, 10);

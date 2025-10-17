@@ -7,6 +7,11 @@ using TextRPGpractice.Entity_info;
 
 namespace TextRPGpractice.Creation
 {
+    #region enemy stat objects
+
+
+
+    #endregion enemy stat objects
     public class CreateEnemy
     {
 

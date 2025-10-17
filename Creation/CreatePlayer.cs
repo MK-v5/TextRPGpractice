@@ -50,10 +50,7 @@ namespace TextRPGpractice.Creation
                         }
                         if (userInput == 2)
                         {
-                            //currentState = states.CharacterViewer;
-                            Console.WriteLine("it isn't doing anything yet.");
-                            Thread.Sleep(750);
-                            currentState = states.CharacterCreatorMenu;
+                            currentState = states.CharacterViewer;
                         }
                         if (userInput == 3)
                         {
@@ -61,6 +58,78 @@ namespace TextRPGpractice.Creation
                         }
                         break;
 
+                    case states.CharacterViewer:
+                        Console.Clear();
+                        Console.WriteLine("character viewer:");
+                        Console.WriteLine("[1] Save 1");
+                        Console.WriteLine("[2] Save 2");
+                        Console.WriteLine("[3] Save 3");
+                        Console.WriteLine("[4] Save 4");
+                        Console.WriteLine("[5] Save 5");
+                        Console.WriteLine("[6] Save 6");
+                        Console.WriteLine("[7] Save 7");
+                        Console.WriteLine("[8] Main Menu");
+                        Console.Write("\n>> ");
+                        userInput = Int32.Parse(Console.ReadLine());
+
+                        if (userInput == 1)
+                        {
+                            sav.currentSave = 0;
+                            sav.ViewSave();
+                            Console.WriteLine("\nplease press enter to return.");
+                            Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        if (userInput == 2)
+                        {
+                            sav.currentSave = 1;
+                            sav.ViewSave();
+                            Console.WriteLine("\nplease press enter to return.");
+                            Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        if (userInput == 3)
+                        {
+                            sav.currentSave = 2;
+                            sav.ViewSave();
+                            Console.WriteLine("\nplease press enter to return.");
+                            Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        if (userInput == 4)
+                        {
+                            sav.currentSave = 3;
+                            sav.ViewSave();
+                            Console.WriteLine("\nplease press enter to return.");
+                            Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        if (userInput == 5)
+                        {
+                            sav.currentSave = 4;
+                            sav.ViewSave();
+                            Console.WriteLine("\nplease press enter to return.");
+                            Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        if (userInput == 6)
+                        {
+                            sav.currentSave = 5;
+                            sav.ViewSave();
+                            Console.WriteLine("\nplease press enter to return.");
+                            Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        if (userInput == 7)
+                        {
+                            sav.currentSave = 6;
+                            sav.ViewSave();
+                            Console.WriteLine("\nplease press enter to return.");
+                            Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        break;
+                    
                     case states.RaceSelect:
                         Console.Clear();
                         Console.WriteLine("Race Select:");

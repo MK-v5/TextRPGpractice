@@ -19,7 +19,7 @@ namespace TextRPGpractice
 
         #region save system object
 
-        static SaveSys sav = new();
+        public static SaveSys sav = new();
 
         #endregion end save system
 

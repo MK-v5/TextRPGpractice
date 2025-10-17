@@ -2,13 +2,13 @@
   "level": 0,
   "exp": 0,
   "Race": {
-    "rName": "Cat",
+    "rName": "Voxen",
     "hp": 30,
     "mp": 15,
     "sp": 20
   },
   "Class": {
-    "cName": "Ninja",
+    "cName": "Demon Hunter",
     "str": 18,
     "def": 19,
     "dex": 16

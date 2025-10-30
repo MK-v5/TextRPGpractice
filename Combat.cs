@@ -10,18 +10,16 @@ namespace TextRPGpractice
 {
     public class Combat : States
     {
-
-        Random rnd = new Random();
-        int enRaceChance;
-        int enClassChance;
+        Random rng = new();
+        CreateEnemy encreate = new();
         bool isCombat = false;
         bool yourTurn = true;
-        bool enemyCreated = false;
+        public bool enemyCreated = false;
         public void Encounter()
         {
             if (enemyCreated)
             {
-                CreateEnemy();
+                encreate.SpawnEnemy();
             }
             else
             {
@@ -35,19 +33,15 @@ namespace TextRPGpractice
                 }
                 else
                 {
-                    Console.WriteLine("Turn ended");
+                    rng.Next(0, 1);
+                    //Console.WriteLine("Turn ended");
                     Thread.Sleep(750);
                     yourTurn = true;
                 }
             }
         }
 
-        void CreateEnemy()
-        {
-            enRaceChance = rnd.Next(0, 3);
-            enClassChance = rnd.Next(0, 3);
-            
-        }
+        #region player actions
 
         void choices()
         {
@@ -68,8 +62,17 @@ namespace TextRPGpractice
             }
         }
 
+
+        /*
+        * attack - block = Dmg dealt; 
+        * attack = str + wpnDmg; 
+        * if wpn = null then attack = str; 
+        * block = def + amrDef; 
+        * if amr = null then block = def;
+        */
         void Attack()
         {
+            
             yourTurn = false;
         }
 
@@ -92,5 +95,12 @@ namespace TextRPGpractice
         {
             
         }
+
+        #endregion player actions
+
+        #region enemy actions
+
+
+        #endregion enemy actions
     }
 }

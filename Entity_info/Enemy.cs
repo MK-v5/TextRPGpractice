@@ -8,8 +8,7 @@ namespace TextRPGpractice.Entity_info
 {
     public class Enemy
     {
-        
-        public EnemyRace eRace {  get; set; }
+        public EnemyRace eRace { get; set; }
         public EnemyClass eClass { get; set; }
     }
 }

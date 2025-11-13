@@ -10,18 +10,21 @@ namespace TextRPGpractice
 {
     public class Combat : States
     {
-        Random rng = new();
-        CreateEnemy encreate = new();
+        CreateEnemy ec = new();
+
         bool isCombat = false;
         bool yourTurn = true;
-        public bool enemyCreated = false;
+        //public bool enemyCreated = false;
+
         public void Encounter()
         {
-            if (enemyCreated)
+            Random rng = new Random();
+            if (!ec.enemyCreated)
             {
-                encreate.SpawnEnemy();
+                isCombat = false;
+                ec.raceRand();
             }
-            else
+            if(ec.enemyCreated == true)
             {
                 isCombat = true;
             }
@@ -33,10 +36,25 @@ namespace TextRPGpractice
                 }
                 else
                 {
-                    rng.Next(0, 1);
-                    //Console.WriteLine("Turn ended");
+                    var enemychoice = rng.Next(0, 1);
+                    if (enemychoice == 0)
+                    {
+                        Console.WriteLine("Enemy did a useless backflip");
+                    }
+                    if (enemychoice == 1)
+                    {
+                        attackPlayer();
+                    }
+                    Console.WriteLine(ec.enemy.eRace.enemyHp);
                     Thread.Sleep(750);
                     yourTurn = true;
+                }
+                if (ec.enemy.eRace.enemyHp <= 0)
+                {
+                    isCombat = false;
+                    Console.WriteLine("You Win!");
+                    Thread.Sleep(750);
+                    Environment.Exit(0);
                 }
             }
         }
@@ -53,6 +71,11 @@ namespace TextRPGpractice
             Console.WriteLine("[5] Guard");
             Console.WriteLine("[6] Run");
 
+            Console.WriteLine(ec.enemy.eRace.enemyRn);
+            Console.WriteLine(ec.enemy.eClass.enemyCn);
+            //Console.WriteLine(enemy.eRace.enemyHp);
+            //Console.WriteLine(enemy.eClass.enemyStr);
+
             Console.Write("\n>> ");
             userInput = Int32.Parse(Console.ReadLine());
 
@@ -65,14 +88,21 @@ namespace TextRPGpractice
 
         /*
         * attack - block = Dmg dealt; 
-        * attack = str + wpnDmg; 
+        * attack = str + wpnDmg;
+        * dmg - enemy hp;
+        * 
         * if wpn = null then attack = str; 
         * block = def + amrDef; 
         * if amr = null then block = def;
         */
+
+        //int attack = player.str -  enemy.hp;
+        
+
         void Attack()
         {
-            
+            int dmg = player.Class.str - ec.enemy.eClass.enemyDef;
+            dmg -= ec.enemy.eRace.enemyHp;
             yourTurn = false;
         }
 
@@ -100,6 +130,12 @@ namespace TextRPGpractice
 
         #region enemy actions
 
+        void attackPlayer()
+        {
+            int dmgTaken = ec.enemy.eClass.enemyStr - player.Class.def;
+            dmgTaken -= player.Race.hp;
+            yourTurn = true;
+        }
 
         #endregion enemy actions
     }

@@ -9,6 +9,9 @@ namespace TextRPGpractice.Entity_info
     public class Entity
     {
         //for race
+        int _attributeId;
+        int _attributeName;
+        int _attributeValue;
         public int baseHp = 20;
         public int baseMp = 5;
         public int baseSp = 10;

@@ -8,14 +8,13 @@ namespace TextRPGpractice.Entity_info
 {
     public class CharacterRace : Entity
     {
-        public string[] raceNames = { "Wolfen", "Cat", "Voxen", "Dragon" };
+        public static string[] raceNames = { "Wolfen", "Cat", "Voxen", "Dragon" };
 
-        //race
         public string rName { get; set; }
+
         public int hp { get; set; }
         public int mp { get; set; }
         public int sp { get; set; }
-
         public int hpMod;
         public int mpMod;
         public int spMod;

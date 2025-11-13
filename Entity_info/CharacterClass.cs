@@ -10,8 +10,8 @@ namespace TextRPGpractice.Entity_info
     {
         public string[] classNames = { "Knight", "Ninja", "Mage", "Demon Hunter" };
 
-        //class
         public string cName { get; set; }
+
         public int str { get; set; }
         public int def { get; set; }
         public int dex { get; set; }

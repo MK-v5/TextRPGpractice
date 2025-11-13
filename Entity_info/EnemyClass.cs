@@ -10,10 +10,11 @@ namespace TextRPGpractice.Entity_info
     {
         public string[] enemyClassName = { "Royal Knight", "Bandit", "Dark Mage", "Royal Guard" };
 
-        public string EnemyCn;
-        public int enemyStr;
-        public int enemyDef;
-        public int enemyDex;
+        public string enemyCn { get; set; }
+
+        public int enemyStr { get; set; }
+        public int enemyDef { get; set; }
+        public int enemyDex { get; set; }
 
         public int eStrMod;
         public int eDexMod;
@@ -36,7 +37,7 @@ namespace TextRPGpractice.Entity_info
     {
         public RoyalKnight() 
         {
-            EnemyCn = enemyClassName[0];
+            enemyCn = enemyClassName[0].ToString();
             ecStats(10, 5, 10);
         }
     }
@@ -45,7 +46,7 @@ namespace TextRPGpractice.Entity_info
     {
         public Bandit()
         {
-            EnemyCn = enemyClassName[1];
+            enemyCn = enemyClassName[1].ToString();
             ecStats(10, 5, 10);
         }
     }
@@ -54,7 +55,7 @@ namespace TextRPGpractice.Entity_info
     {
         public DarkMage()
         {
-            EnemyCn = enemyClassName[2];
+            enemyCn = enemyClassName[2].ToString();
             ecStats(10, 5, 10);
         }
     }
@@ -63,7 +64,7 @@ namespace TextRPGpractice.Entity_info
     {
         public RoyalGuard()
         {
-            EnemyCn = enemyClassName[3];
+            enemyCn = enemyClassName[3].ToString();
             ecStats(10, 5, 10);
         }
     }

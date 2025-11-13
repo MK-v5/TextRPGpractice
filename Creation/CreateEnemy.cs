@@ -7,78 +7,75 @@ using TextRPGpractice.Entity_info;
 
 namespace TextRPGpractice.Creation
 {
-    public class CreateEnemy : Combat
+    public class CreateEnemy
     {
         #region enemy stat objects
 
         public Enemy enemy = new();
 
         //enemy race
-        Endog endog = new();
-        Kobold kobold = new();
-        Owlen owlen = new();
-        Bear bear = new();
+        public Endog endog = new();
+        public Kobold kobold = new();
+        public Owlen owlen = new();
+        public Bear bear = new();
         
 
         //enemy class
-        RoyalKnight royalKnight = new();
-        Bandit bandit = new();
-        DarkMage darkMage = new();
-        RoyalGuard royalGuard = new();
+        public RoyalKnight royalKnight = new();
+        public Bandit bandit = new();
+        public DarkMage darkMage = new();
+        public RoyalGuard royalGuard = new();
 
         #endregion enemy stat objects
+        Random rnd = new();
+        int enRaceChance = 0;
+        int enClassChance = 0;
+        public bool enemyCreated;
 
-        Random rnd = new Random();
-        int enRaceChance;
-        int enClassChance;
-        public void SpawnEnemy()
-        {
-            EnemyRaceChoice();
-        }
-
-        void EnemyRaceChoice()
+        public void raceRand()
         {
             enRaceChance = rnd.Next(0, 3);
             switch (enRaceChance)
             {
                 case 0:
                     enemy.eRace = endog;
-                    EnemyClassChoice();
+                    classRand();
                     break;
                 case 1:
                     enemy.eRace = kobold;
-                    EnemyClassChoice();
+                    classRand();
                     break;
                 case 2:
                     enemy.eRace = owlen;
-                    EnemyClassChoice();
+                    classRand();
                     break;
                 case 3:
                     enemy.eRace = bear;
-                    EnemyClassChoice();
+                    classRand();
                     break;
             }
-        }
 
-        void EnemyClassChoice()
+            
+        }
+        void classRand()
         {
             enClassChance = rnd.Next(0, 3);
             switch (enClassChance)
             {
                 case 0:
-                    enemy.eRace = endog;
+                    enemy.eClass = royalKnight;
                     enemyCreated = true;
                     break;
                 case 1:
-                    enemy.eRace = kobold;
+                    enemy.eClass = bandit;
                     enemyCreated = true;
                     break;
                 case 2:
-                    enemy.eRace = owlen;
+                    enemy.eClass = darkMage;
                     enemyCreated = true;
                     break;
                 case 3:
-                    enemy.eRace = bear;
+                    enemy.eClass = royalGuard;
                     enemyCreated = true;
                     break;
             }

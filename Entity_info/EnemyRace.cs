@@ -10,10 +10,11 @@ namespace TextRPGpractice.Entity_info
     {
         public string[] enemyRaceName = { "Endog", "Kobold", "Owlen", "Bear" };
 
-        public string enemyRn;
-        public int enemyHp;
-        public int enemyMp;
-        public int enemySp;
+        public string enemyRn { get; set; }
+
+        public int enemyHp { get; set; }
+        public int enemyMp { get; set; }
+        public int enemySp { get; set; }
 
         public int eHpMod;
         public int eMpMod;
@@ -35,7 +36,7 @@ namespace TextRPGpractice.Entity_info
     {
         public Endog()
         {
-            enemyRn = enemyRaceName[0];
+            enemyRn = enemyRaceName[0].ToString();
             erStats(10, 9, 10);
         }
     }
@@ -43,7 +44,7 @@ namespace TextRPGpractice.Entity_info
     {
         public Kobold()
         {
-            enemyRn = enemyRaceName[1];
+            enemyRn = enemyRaceName[1].ToString();
             erStats(10, 9, 10);
         }
     }
@@ -52,7 +53,7 @@ namespace TextRPGpractice.Entity_info
     {
         public Owlen()
         {
-            enemyRn = enemyRaceName[2];
+            enemyRn = enemyRaceName[2].ToString();
             erStats(10, 9, 10);
         }
     }
@@ -60,7 +61,7 @@ namespace TextRPGpractice.Entity_info
     {
         public Bear()
         {
-            enemyRn = enemyRaceName[3];
+            enemyRn = enemyRaceName[3].ToString();
             erStats(10, 9, 10);
         }
     }

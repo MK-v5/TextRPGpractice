@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextRPGpractice.Entity_info;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace TextRPGpractice.Creation
 {
@@ -142,7 +141,6 @@ namespace TextRPGpractice.Creation
 
                         if (userInput == 1)
                         {
-
                             player.Race = wolf;
                             currentState = states.ClassSelect;
                         }

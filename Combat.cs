@@ -10,7 +10,7 @@ namespace TextRPGpractice
 {
     public class Combat : States
     {
-        CreateEnemy ec = new();
+        static CreateEnemy ec = new();
 
         bool isCombat = false;
         bool yourTurn = true;
@@ -53,6 +53,7 @@ namespace TextRPGpractice
                 {
                     isCombat = false;
                     Console.WriteLine("You Win!");
+                    player.exp += 20;
                     Thread.Sleep(750);
                     Environment.Exit(0);
                 }
@@ -77,11 +78,48 @@ namespace TextRPGpractice
             //Console.WriteLine(enemy.eClass.enemyStr);
 
             Console.Write("\n>> ");
-            userInput = Int32.Parse(Console.ReadLine());
+
+            try
+            {
+                userInput = Int32.Parse(Console.ReadLine());
+            }
+            catch (Exception excpt)
+            {
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Incorrect input type!!");
+                Console.WriteLine(excpt.ToString());
+                Console.ResetColor();
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nPlease input a number next time!");
+                Console.ResetColor();
+                Console.ReadKey();
+            }
 
             if (userInput == 1)
             {
                 Attack();
+            }
+            if (userInput == 2)
+            {
+                Skill();
+            }
+            if (userInput == 3) 
+            {
+                Magic();
+            }
+            if (userInput == 4) 
+            {
+                Items();
+            }
+            if (userInput == 5) 
+            {
+                Defend();
+            }
+            if (userInput == 6)
+            {
+                Run();
             }
         }
 
@@ -101,29 +139,46 @@ namespace TextRPGpractice
 
         void Attack()
         {
+            int currentEnemyHp = ec.enemy.eRace.enemyHp;
             int dmg = player.Class.str - ec.enemy.eClass.enemyDef;
-            dmg -= ec.enemy.eRace.enemyHp;
+            dmg -= currentEnemyHp;
             yourTurn = false;
         }
 
         void Skill()
         {
-
+            Console.WriteLine("no skills yet..");
+            Thread.Sleep(1000);
+            yourTurn = false;
         }
 
         void Magic()
         {
+            Console.WriteLine("no magic spells learned..");
+            Thread.Sleep(1000);
+            yourTurn = false;
+        }
 
+        void Items()
+        {
+            Console.WriteLine("pockets empty..");
+            Thread.Sleep(1000);
+            yourTurn = false;
         }
 
         void Defend()
         {
-
+            Console.WriteLine("you forgor..");
+            Thread.Sleep(1000);
+            yourTurn = false;
         }
 
         void Run()
         {
-            
+            Console.WriteLine("you ditched the fight..");
+            Thread.Sleep(1000);
+            isCombat = false;
+            currentState = states.MainMenu;
         }
 
         #endregion player actions
@@ -133,8 +188,24 @@ namespace TextRPGpractice
         void attackPlayer()
         {
             int dmgTaken = ec.enemy.eClass.enemyStr - player.Class.def;
-            dmgTaken -= player.Race.hp;
+            int currentHp = player.Race.hp;
+            dmgTaken -= currentHp;
             yourTurn = true;
+        }
+
+        void Emagic()
+        {
+
+        }
+
+        void Eskill()
+        {
+
+        }
+
+        void Edefend()
+        {
+
         }
 
         #endregion enemy actions

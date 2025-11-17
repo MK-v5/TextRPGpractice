@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO.Compression;
 using TextRPGpractice.Creation;
 using TextRPGpractice.Entity_info;
@@ -76,8 +77,26 @@ namespace TextRPGpractice
                         Console.WriteLine(player.Class);
 
                         Console.Write("\n>> ");
-                        userInput = Int32.Parse(Console.ReadLine());
 
+                        try
+                        {
+                            userInput = Int32.Parse(Console.ReadLine());
+                        }
+                        catch (Exception excpt)
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Incorrect input type!!");
+                            Console.WriteLine(excpt.ToString());
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\nPlease input a number next time!");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                        }
+                        
+                        
                         if (userInput == 1)
                         {
                             currentState = states.MainGame;
@@ -102,7 +121,16 @@ namespace TextRPGpractice
                         break;
 
                     case states.MainGame:
-                        comb.Encounter();
+                        if (player.Race == null && player.Class == null)
+                        {
+                            Console.WriteLine("no character made just yet");
+                            Thread.Sleep(1000);
+                            currentState = states.MainMenu;
+                        }
+                        else
+                        {
+                            comb.Encounter();
+                        }
                         break;
 
                     case states.SaveMenu:

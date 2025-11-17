@@ -1,3 +1,2 @@
-a little rpg in cs <br>
-possibly adding a map <br>
-doing this project out of passion and mild spite
+a little rpg in c# <br>
+this is getting some form of progress :)

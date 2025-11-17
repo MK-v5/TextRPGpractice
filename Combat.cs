@@ -15,6 +15,11 @@ namespace TextRPGpractice
         bool isCombat = false;
         bool yourTurn = true;
         //public bool enemyCreated = false;
+        int userInput;
+        int cHp;
+        int cEHp;
+        int dmg;
+        int dmgT;
 
         public void Encounter()
         {
@@ -28,13 +33,22 @@ namespace TextRPGpractice
             {
                 isCombat = true;
             }
+
+            int currentHp = player.Race.hp;
+            int currentEnemyHp = ec.enemy.eRace.enemyHp;
+            int damage = player.Class.str - ec.enemy.eClass.enemyDef;
+            int damageTaken = ec.enemy.eClass.enemyStr - player.Class.def;
+            cHp = currentHp;
+            cEHp = currentEnemyHp;
+            dmg = damage;
+            dmgT = damageTaken;
             while (isCombat)
             {
                 if (yourTurn)
                 {
                     choices();
                 }
-                else
+                if (!yourTurn)
                 {
                     var enemychoice = rng.Next(0, 1);
                     if (enemychoice == 0)
@@ -45,17 +59,24 @@ namespace TextRPGpractice
                     {
                         attackPlayer();
                     }
-                    Console.WriteLine(ec.enemy.eRace.enemyHp);
+                    Console.WriteLine(cEHp);
                     Thread.Sleep(750);
                     yourTurn = true;
                 }
-                if (ec.enemy.eRace.enemyHp <= 0)
+                if (cEHp <= 0)
                 {
                     isCombat = false;
                     Console.WriteLine("You Win!");
                     player.exp += 20;
                     Thread.Sleep(750);
-                    Environment.Exit(0);
+                    currentState = states.MainMenu;
+                }
+                if (cHp <= 0)
+                {
+                    isCombat = false;
+                    Console.WriteLine("You Lose!");
+                    Thread.Sleep(1000);
+                    currentState = states.MainMenu;
                 }
             }
         }
@@ -64,6 +85,7 @@ namespace TextRPGpractice
 
         void choices()
         {
+            
             Console.Clear();
             Console.WriteLine("[1] Attack");
             Console.WriteLine("[2] Skill");
@@ -139,9 +161,7 @@ namespace TextRPGpractice
 
         void Attack()
         {
-            int currentEnemyHp = ec.enemy.eRace.enemyHp;
-            int dmg = player.Class.str - ec.enemy.eClass.enemyDef;
-            dmg -= currentEnemyHp;
+            cEHp += dmg;
             yourTurn = false;
         }
 
@@ -187,9 +207,7 @@ namespace TextRPGpractice
 
         void attackPlayer()
         {
-            int dmgTaken = ec.enemy.eClass.enemyStr - player.Class.def;
-            int currentHp = player.Race.hp;
-            dmgTaken -= currentHp;
+            cHp += dmgT;
             yourTurn = true;
         }
 

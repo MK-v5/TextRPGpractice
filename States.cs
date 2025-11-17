@@ -56,7 +56,7 @@ namespace TextRPGpractice
             MainMenu();
         }
 
-        public static void MainMenu()
+        static public void MainMenu()
         {
             currentState = states.MainMenu;
 
@@ -145,7 +145,23 @@ namespace TextRPGpractice
                         Console.WriteLine("[7] Save 7");
                         Console.WriteLine("[8] Main Menu");
                         Console.Write("\n>> ");
-                        userInput = Int32.Parse(Console.ReadLine());
+                        try
+                        {
+                            userInput = Int32.Parse(Console.ReadLine());
+                        }
+                        catch (Exception excpt)
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Incorrect input type!!");
+                            Console.WriteLine(excpt.ToString());
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\nPlease input a number next time!");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                        }
 
                         if (userInput == 1)
                         {
@@ -207,7 +223,23 @@ namespace TextRPGpractice
                         Console.WriteLine("[7] Save 7");
                         Console.WriteLine("[8] Main Menu");
                         Console.Write("\n>> ");
-                        userInput = Int32.Parse(Console.ReadLine());
+                        try
+                        {
+                            userInput = Int32.Parse(Console.ReadLine());
+                        }
+                        catch (Exception excpt)
+                        {
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Incorrect input type!!");
+                            Console.WriteLine(excpt.ToString());
+                            Console.ResetColor();
+                            Console.BackgroundColor = ConsoleColor.White;
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("\nPlease input a number next time!");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                        }
 
                         if (userInput == 1)
                         {

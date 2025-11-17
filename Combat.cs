@@ -15,7 +15,7 @@ namespace TextRPGpractice
         bool isCombat = false;
         bool yourTurn = true;
         //public bool enemyCreated = false;
-        int userInput;
+        
         int cHp;
         int cEHp;
         int dmg;
@@ -23,7 +23,7 @@ namespace TextRPGpractice
 
         public void Encounter()
         {
-            Random rng = new Random();
+            Random rng = new();
             if (!ec.enemyCreated)
             {
                 isCombat = false;

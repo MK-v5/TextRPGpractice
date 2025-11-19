@@ -16,9 +16,9 @@ namespace TextRPGpractice.Entity_info
         public int enemyMp { get; set; }
         public int enemySp { get; set; }
 
-        public int eHpMod;
-        public int eMpMod;
-        public int eSpMod;
+        private int eHpMod;
+        private int eMpMod;
+        private int eSpMod;
 
         public void erStats(int eHpM, int eMpM, int eSpM)
         {

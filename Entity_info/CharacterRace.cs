@@ -15,9 +15,10 @@ namespace TextRPGpractice.Entity_info
         public int hp { get; set; }
         public int mp { get; set; }
         public int sp { get; set; }
-        public int hpMod;
-        public int mpMod;
-        public int spMod;
+
+        private int hpMod;
+        private int mpMod;
+        private int spMod;
 
         public void SetRaceStats(int hpM, int mpM, int spM)
         {

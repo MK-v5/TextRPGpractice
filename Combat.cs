@@ -50,7 +50,7 @@ namespace TextRPGpractice
                 }
                 if (!yourTurn)
                 {
-                    var enemychoice = rng.Next(0, 1);
+                    int enemychoice = rng.Next(0, 1);
                     if (enemychoice == 0)
                     {
                         Console.WriteLine("Enemy did a useless backflip");
@@ -68,6 +68,10 @@ namespace TextRPGpractice
                     isCombat = false;
                     Console.WriteLine("You Win!");
                     player.exp += 20;
+                    if (player.exp >= player.expCap)
+                    {
+                        player.LevelUp();
+                    }
                     Thread.Sleep(750);
                     currentState = states.MainMenu;
                 }
@@ -96,8 +100,8 @@ namespace TextRPGpractice
 
             Console.WriteLine(ec.enemy.eRace.enemyRn);
             Console.WriteLine(ec.enemy.eClass.enemyCn);
-            //Console.WriteLine(enemy.eRace.enemyHp);
-            //Console.WriteLine(enemy.eClass.enemyStr);
+            Console.WriteLine(cEHp);
+            Console.WriteLine(ec.enemy.eClass.enemyStr);
 
             Console.Write("\n>> ");
 
@@ -161,7 +165,7 @@ namespace TextRPGpractice
 
         void Attack()
         {
-            cEHp += dmg;
+            cEHp -= dmg;
             yourTurn = false;
         }
 

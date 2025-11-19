@@ -11,9 +11,25 @@ namespace TextRPGpractice.Entity_info
     {
         public int level { get; set; }
         public int exp { get; set; }
+        public int expCap = 100;
+
 
         public CharacterRace Race { get; set; }
         public CharacterClass Class { get; set; }
+
+
+        public void LevelUp()
+        {
+            int currentCap = expCap;
+            level++;
+            expCap += currentCap;
+            Race.hp += 15;
+            Race.mp += 15;
+            Race.sp += 15;
+            Class.str += 20;
+            Class.def += 20;
+            Class.dex += 20;
+        }
     }
 }
 

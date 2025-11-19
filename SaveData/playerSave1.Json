@@ -1,16 +1,16 @@
 {
-  "level": 0,
-  "exp": 20,
+  "level": 3,
+  "exp": 140,
   "Race": {
     "rName": "Wolfen",
-    "hp": 30,
-    "mp": 15,
-    "sp": 20
+    "hp": 75,
+    "mp": 60,
+    "sp": 65
   },
   "Class": {
     "cName": "Knight",
-    "str": 18,
-    "def": 19,
-    "dex": 16
+    "str": 78,
+    "def": 79,
+    "dex": 76
   }
 }

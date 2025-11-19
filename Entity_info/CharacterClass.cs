@@ -16,9 +16,9 @@ namespace TextRPGpractice.Entity_info
         public int def { get; set; }
         public int dex { get; set; }
 
-        public int strMod;
-        public int dexMod;
-        public int defMod;
+        private int strMod;
+        private int dexMod;
+        private int defMod;
 
         public void SetClassStats(int strM, int dexM, int defM)
         {

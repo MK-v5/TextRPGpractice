@@ -8,13 +8,22 @@ namespace TextRPGpractice.Entity_info
 {
     public class CharacterClass : Entity
     {
-        public string[] classNames = { "Knight", "Ninja", "Mage", "Demon Hunter" };
+        public static string[] classNames = { "Knight", "Ninja", "Mage", "Demon Hunter" };
 
-        public string cName { get; set; }
+        public string cName 
+        {
+            get { return _classValue.ToString(); }
+            set { _classValue = value; _classID = classNames.Length; }
+        }
 
         public int str { get; set; }
         public int def { get; set; }
         public int dex { get; set; }
+
+        protected string knight = classNames[0];
+        protected string ninja = classNames[1];
+        protected string mage = classNames[2];
+        protected string demonHunter = classNames[3];
 
         private int strMod;
         private int dexMod;
@@ -25,9 +34,9 @@ namespace TextRPGpractice.Entity_info
             strMod = strM;
             dexMod = dexM;
             defMod = defM;
-            str = baseStr + strMod;
-            dex = baseDex + dexMod;
-            def = baseDef + defMod;
+            str += strMod;
+            dex += dexMod;
+            def += defMod;
         }
     }
 
@@ -35,7 +44,7 @@ namespace TextRPGpractice.Entity_info
     {
         public Knight()
         {
-            cName = classNames[0].ToString();
+            cName = knight;
             SetClassStats(10, 5, 10);
         }
     }
@@ -44,7 +53,7 @@ namespace TextRPGpractice.Entity_info
     {
         public Ninja()
         {
-            cName = classNames[1].ToString();
+            cName = ninja;
             SetClassStats(10, 5, 10);
         }
     }
@@ -53,8 +62,8 @@ namespace TextRPGpractice.Entity_info
     {
         public Mage()
         {
-            cName = classNames[2].ToString();
-            SetClassStats(10, 5, 10);
+            cName = mage;
+            SetClassStats(10, 5, 12);
         }
     }
 
@@ -62,7 +71,7 @@ namespace TextRPGpractice.Entity_info
     {
         public DemonHunter()
         {
-            cName = classNames[3].ToString();
+            cName = demonHunter;
             SetClassStats(10, 5, 10);
         }
     }

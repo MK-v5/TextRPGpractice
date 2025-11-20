@@ -1,0 +1,16 @@
+{
+  "level": 0,
+  "exp": 0,
+  "Race": {
+    "rName": "Cat",
+    "hp": 11,
+    "mp": 12,
+    "sp": 12
+  },
+  "Class": {
+    "cName": "Mage",
+    "str": 10,
+    "def": 12,
+    "dex": 5
+  }
+}

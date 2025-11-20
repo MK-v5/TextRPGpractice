@@ -8,17 +8,31 @@ namespace TextRPGpractice.Entity_info
 {
     public class Entity
     {
+        //general
+        protected int _attributeID;
+        protected int _attributeValue;
+
         //for race
-        int _attributeId;
-        int _attributeName;
-        int _attributeValue;
-        public int baseHp = 20;
-        public int baseMp = 5;
-        public int baseSp = 10;
+        protected int _raceID;
+        protected string _raceValue;
 
         //for class
-        public int baseStr = 8;
-        public int baseDef = 9;
-        public int baseDex = 11;
+        protected int _classID;
+        protected string _classValue;
+        //----
+        protected int _armorID;
+        protected string _armorName;
+        protected int _armorValue;
+        //----
+        protected int _weaponID;
+        protected string _weaponName;
+        protected int _weaponValue;
+
+        public int baseStr;
+        public int baseDef;
+        public int baseDex;
+        public int baseHp;
+        public int baseMp;
+        public int baseSp;
     }
 }

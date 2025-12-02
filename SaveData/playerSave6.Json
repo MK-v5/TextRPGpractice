@@ -1,0 +1,16 @@
+{
+  "level": 0,
+  "exp": 0,
+  "_Race": {
+    "rName": "Wolfen",
+    "hp": 10,
+    "mp": 10,
+    "sp": 10
+  },
+  "_Class": {
+    "cName": "Demon Hunter",
+    "str": 10,
+    "def": 10,
+    "dex": 5
+  }
+}

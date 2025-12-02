@@ -50,8 +50,21 @@ namespace TextRPGpractice
             {
                 Console.Clear();
                 string loader = File.ReadAllText(path[currentSave]);
-                //player = JsonSerializer.Deserialize<Player>(loader);
-                Console.WriteLine(loader);
+                //foreach ( loader as l)
+                //{
+
+                //}
+                player = JsonSerializer.Deserialize<Player>(loader);
+                Console.WriteLine($"|| race: {player._Race.rName}");
+                Console.WriteLine($"|| HP: {player._Race.hp}");
+                Console.WriteLine($"|| MP: {player._Race.mp}");
+                Console.WriteLine($"|| SP: {player._Race.sp}");
+                Console.WriteLine("+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+                Console.WriteLine($"|| Class: {player._Class.cName}");
+                Console.WriteLine($"|| STR: {player._Class.str}");
+                Console.WriteLine($"|| DEF: {player._Class.def}");
+                Console.WriteLine($"|| DEX: {player._Class.dex}");
+
             }
             else
             {

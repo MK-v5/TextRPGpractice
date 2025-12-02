@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRPGpractice.Weapon_info
+namespace TextRPGpractice.Equipment_info.Equipment_properties
 {
-    public class Equipment
+    public class Weapon
     {
-
     }
 }

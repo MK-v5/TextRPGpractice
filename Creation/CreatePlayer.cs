@@ -121,7 +121,7 @@ namespace TextRPGpractice.Creation
                         }
                         if (userInput == 3)
                         {
-                            sav.currentSave = 2;
+                            sav.currentSave = 1;
                             sav.ViewSave();
                             Console.WriteLine("\nplease press enter to return.");
                             Console.ReadKey();

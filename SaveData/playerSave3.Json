@@ -1,16 +1,16 @@
 {
   "level": 0,
   "exp": 0,
-  "Race": {
+  "_Race": {
     "rName": "Voxen",
-    "hp": 30,
-    "mp": 15,
-    "sp": 20
+    "hp": 10,
+    "mp": 10,
+    "sp": 10
   },
-  "Class": {
-    "cName": "Demon Hunter",
-    "str": 18,
-    "def": 19,
-    "dex": 16
+  "_Class": {
+    "cName": "Mage",
+    "str": 10,
+    "def": 12,
+    "dex": 5
   }
 }

@@ -1,16 +1,16 @@
 {
   "level": 0,
   "exp": 0,
-  "Race": {
-    "rName": "Cat",
-    "hp": 30,
-    "mp": 15,
-    "sp": 20
+  "_Race": {
+    "rName": "Voxen",
+    "hp": 10,
+    "mp": 10,
+    "sp": 10
   },
-  "Class": {
-    "cName": "Ninja",
-    "str": 18,
-    "def": 19,
-    "dex": 16
+  "_Class": {
+    "cName": "Mage",
+    "str": 10,
+    "def": 12,
+    "dex": 5
   }
 }

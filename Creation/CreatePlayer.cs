@@ -83,7 +83,7 @@ namespace TextRPGpractice.Creation
                         Console.WriteLine("[5] Save 5");
                         Console.WriteLine("[6] Save 6");
                         Console.WriteLine("[7] Save 7");
-                        Console.WriteLine("[8] Main Menu");
+                        Console.WriteLine("[8] Back");
                         Console.Write("\n>> ");
                         try
                         {
@@ -157,6 +157,10 @@ namespace TextRPGpractice.Creation
                             sav.ViewSave();
                             Console.WriteLine("\nplease press enter to return.");
                             Console.ReadKey();
+                            currentState = states.CharacterCreatorMenu;
+                        }
+                        if (userInput == 8)
+                        {
                             currentState = states.CharacterCreatorMenu;
                         }
                         break;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TextRPGpractice.Entity_info;
+using TextRPGpractice.Entity_info.Entity_properties;
 
 namespace TextRPGpractice.Creation
 {
@@ -190,22 +190,22 @@ namespace TextRPGpractice.Creation
 
                         if (userInput == 1)
                         {
-                            player.Race = wolf;
+                            player._Race = wolf;
                             currentState = states.ClassSelect;
                         }
                         if (userInput == 2)
                         {
-                            player.Race = cat;
+                            player._Race = cat;
                             currentState = states.ClassSelect;
                         }
                         if (userInput == 3)
                         {
-                            player.Race = vox;
+                            player._Race = vox;
                             currentState = states.ClassSelect;
                         }
                         if (userInput == 4)
                         {
-                            player.Race = dragon;
+                            player._Race = dragon;
                             currentState = states.ClassSelect;
                         }
                         break;
@@ -239,25 +239,25 @@ namespace TextRPGpractice.Creation
                         if (userInput == 1)
                         {
 
-                            player.Class = knight;
+                            player._Class = knight;
                             currentState = states.MainMenu;
                             MainMenu();
                         }
                         if (userInput == 2)
                         {
-                            player.Class = ninja;
+                            player._Class = ninja;
                             currentState = states.MainMenu;
                             MainMenu();
                         }
                         if (userInput == 3)
                         {
-                            player.Class = mage;
+                            player._Class = mage;
                             currentState = states.MainMenu;
                             MainMenu();
                         }
                         if (userInput == 4)
                         {
-                            player.Class = demonHunter;
+                            player._Class = demonHunter;
                             currentState = states.MainMenu;
                             MainMenu();
                         }

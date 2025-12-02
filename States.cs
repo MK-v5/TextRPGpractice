@@ -73,8 +73,8 @@ namespace TextRPGpractice
                         Console.WriteLine("[4] Load Menu");
                         Console.WriteLine("[5] Quit");
 
-                        Console.WriteLine(player.Race);
-                        Console.WriteLine(player.Class);
+                        Console.WriteLine(player._Race);
+                        Console.WriteLine(player._Class);
 
                         Console.Write("\n>> ");
 
@@ -121,7 +121,7 @@ namespace TextRPGpractice
                         break;
 
                     case states.MainGame:
-                        if (player.Race == null && player.Class == null)
+                        if (player._Race == null && player._Class == null)
                         {
                             Console.WriteLine("no character made just yet");
                             Thread.Sleep(1000);

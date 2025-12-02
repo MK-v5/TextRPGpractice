@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TextRPGpractice.Entity_info;
+using TextRPGpractice.Entity_info.Entity_properties;
 
 namespace TextRPGpractice.Creation
 {
@@ -38,19 +39,19 @@ namespace TextRPGpractice.Creation
             switch (enRaceChance)
             {
                 case 0:
-                    enemy.eRace = endog;
+                    enemy._Race = endog;
                     classRand();
                     break;
                 case 1:
-                    enemy.eRace = kobold;
+                    enemy._Race = kobold;
                     classRand();
                     break;
                 case 2:
-                    enemy.eRace = owlen;
+                    enemy._Race = owlen;
                     classRand();
                     break;
                 case 3:
-                    enemy.eRace = bear;
+                    enemy._Race = bear;
                     classRand();
                     break;
             }
@@ -63,19 +64,19 @@ namespace TextRPGpractice.Creation
             switch (enClassChance)
             {
                 case 0:
-                    enemy.eClass = royalKnight;
+                    enemy._Class = royalKnight;
                     enemyCreated = true;
                     break;
                 case 1:
-                    enemy.eClass = bandit;
+                    enemy._Class = bandit;
                     enemyCreated = true;
                     break;
                 case 2:
-                    enemy.eClass = darkMage;
+                    enemy._Class = darkMage;
                     enemyCreated = true;
                     break;
                 case 3:
-                    enemy.eClass = royalGuard;
+                    enemy._Class = royalGuard;
                     enemyCreated = true;
                     break;
             }

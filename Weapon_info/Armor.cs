@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TextRPGpractice.Entity_info
+namespace TextRPGpractice.Weapon_info
 {
-    public class Enemy : Entity
+    public class Armor
     {
-        int levelScale;
+
     }
 }

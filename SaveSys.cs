@@ -17,7 +17,7 @@ namespace TextRPGpractice
         public int currentSave = 0;
         public void SaveGame(Player charSave)
         {
-            if (charSave.Class == null && charSave.Race == null)
+            if (charSave._Class == null && charSave._Race == null)
             {
                 Console.WriteLine("No character Created");
                 Thread.Sleep(550);

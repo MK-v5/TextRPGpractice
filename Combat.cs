@@ -34,10 +34,10 @@ namespace TextRPGpractice
                 isCombat = true;
             }
 
-            int currentHp = player.Race.hp;
-            int currentEnemyHp = ec.enemy.eRace.enemyHp;
-            int damage = player.Class.str - ec.enemy.eClass.enemyDef;
-            int damageTaken = ec.enemy.eClass.enemyStr - player.Class.def;
+            int currentHp = player._Race.hp;
+            int currentEnemyHp = ec.enemy._Race.hp;
+            int damage = player._Class.str - ec.enemy._Class.def;
+            int damageTaken = ec.enemy._Class.str - player._Class.def;
             cHp = currentHp;
             cEHp = currentEnemyHp;
             dmg = damage;
@@ -98,10 +98,10 @@ namespace TextRPGpractice
             Console.WriteLine("[5] Guard");
             Console.WriteLine("[6] Run");
 
-            Console.WriteLine(ec.enemy.eRace.enemyRn);
-            Console.WriteLine(ec.enemy.eClass.enemyCn);
+            Console.WriteLine(ec.enemy._Race.rName);
+            Console.WriteLine(ec.enemy._Class.cName);
             Console.WriteLine(cEHp);
-            Console.WriteLine(ec.enemy.eClass.enemyStr);
+            Console.WriteLine(ec.enemy._Class.str);
 
             Console.Write("\n>> ");
 

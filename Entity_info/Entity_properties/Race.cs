@@ -38,19 +38,11 @@ namespace TextRPGpractice.Entity_info.Entity_properties
         protected string owlen = raceNames[0, 6];
         protected string bear = raceNames[0, 7];
         
-
-        private int hpMod;
-        private int mpMod;
-        private int spMod;
-
         public void SetRaceStats(int hpM, int mpM, int spM)
         {
-            hpMod = hpM;
-            mpMod = mpM;
-            spMod = spM;
-            hp += hpMod;
-            mp += mpMod;
-            sp += spMod;
+            hp += hpM;
+            mp += mpM;
+            sp += spM;
         }
     }
 

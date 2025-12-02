@@ -31,18 +31,11 @@ namespace TextRPGpractice.Entity_info.Entity_properties
         protected string darkMage = classNames[6];
         protected string royalGuard = classNames[7];
 
-
-        private int strMod;
-        private int defMod;
-        private int dexMod;
         public void SetClassStats(int strM, int dexM, int defM)
         {
-            strMod = strM;
-            dexMod = dexM;
-            defMod = defM;
-            str += strMod;
-            dex += dexMod;
-            def += defMod;
+            str += strM;
+            dex += dexM;
+            def += defM;
         }
     }
 

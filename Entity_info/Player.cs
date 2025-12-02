@@ -27,13 +27,3 @@ namespace TextRPGpractice.Entity_info
         }
     }
 }
-
-/*
-    //for combat
-    public int baseDmg;
-    public int baseAmr;
-
-    //combat
-    public int dmg { get; set; }
-    public int amr { get; set; }
-*/
